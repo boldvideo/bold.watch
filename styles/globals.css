@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 html,
 body {
   padding: 0;
@@ -27,4 +28,9 @@ a {
     color: white;
     background: black;
   }
+}
+
+.markdown a {
+  color: rosa;
+  text-decoration: underline;
 }
