@@ -16,7 +16,7 @@ export default function Watch({data}) {
 
         {/* Open Graph */}
         <meta property="og:url" content={`https://bold.watch/${data.data.id}`} key="ogurl" />
-        <meta property="og:image" content={`${data.data.thumbnail}?width=1200&height=630&fit_mode=smartcrop`} key="ogimage" />
+        <meta property="og:image" content={`${data.data.thumbnail.substr(0, data.data.thumbnail.indexOf('?'))}?width=1200&height=630&fit_mode=smartcrop`} key="ogimage" />
         <meta property="og:site_name" content={'bold.watch'} key="ogsitename" />
         <meta property="og:title" content={`Bold: ${data.data.title}`} key="ogtitle" />
         <meta property="og:description" content={data.data.description} key="ogdesc" />
