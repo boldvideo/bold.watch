@@ -1,9 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Head from 'next/head'
-import MuxPlayer from "@mux/mux-player-react";
+import dynamic from 'next/dynamic'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+
+const Player = dynamic(() => import('../components/player'), {
+  ssr: false,
+})
 
 export default function Watch({data}) {
   console.log(data)
@@ -35,21 +39,12 @@ export default function Watch({data}) {
       </header>
       <main className="flex-1 flex flex-col items-center"> 
         <div className="aspect-video w-full max-w-[1440px] mb-12 ">
-          <MuxPlayer
-            className="w-full h-full"
-            autoPlay
-            streamType="on-demand"
-            playbackId={data.data.playback_id}
-            metadata={{
-              video_id: `video-id-${data.data.id}`,
-              video_title: data.data.title,
-            }}
-          />
+          <Player data={data} />
         </div>
 
         <div className="flex-1 max-w-3xl w-full px-8">
           <h2 className="text-3xl font-medium mb-8">{data.data.title}</h2>
-          <p className="text-xl markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{data.data.description}</ReactMarkdown></p>
+          <div className="text-xl markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{data.data.description}</ReactMarkdown></div>
 
 
         </div>
