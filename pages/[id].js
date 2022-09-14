@@ -12,10 +12,10 @@ export default function Watch({data}) {
       <Head>
 
         <meta name="twitter:card" content="summary" key="twcard" />
-        <meta name="twitter:creator" content={twitterHandle} key="twhandle" />
+        <meta name="twitter:creator" content={'@veryboldvideo'} key="twhandle" />
 
         {/* Open Graph */}
-        <meta property="og:url" content={currentURL} key="ogurl" />
+        <meta property="og:url" content={`https://bold.watch/${data.data.id}`} key="ogurl" />
         <meta property="og:image" content={data.data.thumbnail} key="ogimage" />
         <meta property="og:site_name" content={'bold.watch'} key="ogsitename" />
         <meta property="og:title" content={`Bold: ${data.data.title}`} key="ogtitle" />
